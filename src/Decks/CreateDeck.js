@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 function CreateDeck() {
   return (
-    <Link to="/new-deck">
+    <Link to="/decks/new">
       <button type="button">+ Create Deck</button>
     </Link>
   );
