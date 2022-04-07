@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 function CreateDeck() {
   return (
     <Link to="/decks/new">
-      <button type="button">+ Create Deck</button>
+      <button type="button"><span className="font-weight-bold">+</span> Create Deck</button>
     </Link>
   );
 }

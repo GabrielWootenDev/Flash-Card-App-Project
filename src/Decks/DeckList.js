@@ -1,11 +1,15 @@
 import React from "react";
 import Deck from "./Deck";
 
-function DeckList({decks}) {
+// todo: add props when appropriate additional functions for Deck are created.
+
+function DeckList({ decks }) {
   return (
-    <ul>
-        {decks.map((deck) => <Deck deck={deck}/>)}
-    </ul>
+    <div>
+      {decks.map((deck) => (
+        <Deck deck={deck} key={deck.id} />
+      ))}
+    </div>
   );
 }
 
