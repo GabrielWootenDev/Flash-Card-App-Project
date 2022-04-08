@@ -7,7 +7,7 @@ function DeckList({ decks }) {
   return (
     <div>
       {decks.map((deck) => (
-        <Deck deck={deck} key={deck.id} />
+        <Deck deck={deck} key={deck.id}/>
       ))}
     </div>
   );

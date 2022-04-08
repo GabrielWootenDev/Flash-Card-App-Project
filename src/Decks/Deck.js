@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 
 //todo: link buttons to appropriate functions and components and add the text for # of child cards in the deck.
 function Deck({ deck }) {
+
   return (
     <div className="card">
       <div className="card-body">
@@ -15,7 +16,7 @@ function Deck({ deck }) {
           </div>
         </div>
         <p className="card-text">{deck.description}</p>
-        <Link to="" className="btn btn-secondary mr-2">
+        <Link to={`/decks/${deck.id}`} className="btn btn-secondary mr-2">
           &#x1f441;View
         </Link>
         <Link to="" className="btn btn-primary">
