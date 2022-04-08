@@ -1,36 +1,34 @@
 import React, { useState, useEffect } from "react";
 import { Switch, Route, useRouteMatch, useParams } from "react-router-dom";
-import NewDeck from "../Decks/NewDeck";
 import ViewDeck from "../Decks/ViewDeck";
 import { readDeck } from "../utils/api";
 
 function Decks() {
   const { path } = useRouteMatch();
-  const { currentDeck, setCurrentDeck } = useState({});
+  const { deck, setDeck } = useState({});
   const { deckId } = useParams();
 
+
+  // this code below should work yet no metter what I try I always get a Type error that setDeck is not a function.
   useEffect(() => {
     async function readCurrentDeck() {
+      if (deckId === "new") return;
       try {
-        const response = readDeck(deckId);
-        const deck = await response;
-        setCurrentDeck(deck);
+        const response = await readDeck(deckId);
+        console.log(response);
+        setDeck(response);
       } catch (error) {
         console.log(error);
       }
     }
     readCurrentDeck();
-    console.log(currentDeck)
   }, []);
 
   return (
     <>
       <Switch>
-        <Route path={`/decks/new`}>
-          <NewDeck />
-        </Route>
         <Route path={`${path}`}>
-          <ViewDeck deck={currentDeck} />
+          <ViewDeck deck={deck} />
         </Route>
       </Switch>
     </>

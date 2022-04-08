@@ -3,6 +3,7 @@ import { Switch, Route } from "react-router-dom";
 import Header from "./Header";
 import NotFound from "./NotFound";
 import Home from "./Home";
+import CreateDeck from "../Decks/CreateDeck";
 import Decks from "./Decks";
 import { listDecks } from "../utils/api";
 
@@ -13,9 +14,8 @@ function Layout() {
   useEffect(() => {
     async function loadDecks() {
       try {
-        const response = listDecks();
-        const decks = await response;
-        setDecks(decks);
+        const response = await listDecks();
+        setDecks(response);
       } catch (error) {
         console.log("Load deck error:", error);
       }
@@ -30,6 +30,9 @@ function Layout() {
         <Switch>
           <Route exact path="/">
             <Home decks={decks} />
+          </Route>
+          <Route>
+            <CreateDeck path="/decks/new" />
           </Route>
           <Route path="/decks/:deckId">
             <Decks />

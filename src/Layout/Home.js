@@ -1,16 +1,17 @@
 import React from "react";
-import CreateDeck from "../Decks/CreateDeck";
+import { Link } from "react-router-dom";
 import DeckList from "../Decks/DeckList";
 
-function Home({decks}) {
-
+function Home({ decks }) {
   return (
     <>
       <div>
-        <CreateDeck />
+        <Link to="/decks/new" className="btn btn-secondary">
+          &#10133; Create Deck
+        </Link>
       </div>
       <div>
-        <DeckList decks={decks}/>
+        <DeckList decks={decks} />
       </div>
     </>
   );
