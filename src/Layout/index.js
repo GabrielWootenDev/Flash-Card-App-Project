@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 import { Switch, Route } from "react-router-dom";
 import Header from "./Header";
 import NotFound from "./NotFound";
@@ -8,7 +8,6 @@ import Decks from "./Decks";
 import { listDecks } from "../utils/api";
 
 function Layout() {
-
   const [decks, setDecks] = useState([]);
 
   useEffect(() => {
@@ -20,7 +19,7 @@ function Layout() {
         console.log("Load deck error:", error);
       }
     }
-    loadDecks()
+    loadDecks();
   }, []);
 
   return (
@@ -31,8 +30,8 @@ function Layout() {
           <Route exact path="/">
             <Home decks={decks} />
           </Route>
-          <Route>
-            <CreateDeck path="/decks/new" />
+          <Route path="/decks/new">
+            <CreateDeck  />
           </Route>
           <Route path="/decks/:deckId">
             <Decks />

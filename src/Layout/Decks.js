@@ -5,31 +5,33 @@ import { readDeck } from "../utils/api";
 
 function Decks() {
   const { path } = useRouteMatch();
-  const { deck, setDeck } = useState({});
   const { deckId } = useParams();
+  const [deck, setDeck] = useState({});
 
-
-  // this code below should work yet no metter what I try I always get a Type error that setDeck is not a function.
   useEffect(() => {
     async function readCurrentDeck() {
-      if (deckId === "new") return;
       try {
         const response = await readDeck(deckId);
-        console.log(response);
         setDeck(response);
       } catch (error) {
         console.log(error);
       }
     }
+    
     readCurrentDeck();
-  }, []);
+  }, [deckId]);
 
+  if (!deck) return <p>loading...</p>
   return (
     <>
       <Switch>
         <Route path={`${path}`}>
           <ViewDeck deck={deck} />
         </Route>
+        <Route></Route>
+        <Route></Route>
+        <Route></Route>
+        <Route></Route>
       </Switch>
     </>
   );

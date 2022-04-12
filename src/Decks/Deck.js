@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-//todo: link buttons to appropriate functions and components and add the text for # of child cards in the deck.
+//todo: link buttons to appropriate functions and components.
 function Deck({ deck }) {
 
   return (
