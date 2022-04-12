@@ -3,7 +3,7 @@ import { Switch, Route, useRouteMatch, useParams } from "react-router-dom";
 import ViewDeck from "../Decks/ViewDeck";
 import { readDeck } from "../utils/api";
 
-function Decks() {
+function Decks({deleteDeckHandler}) {
   const { path } = useRouteMatch();
   const { deckId } = useParams();
   const [deck, setDeck] = useState({});
@@ -26,7 +26,7 @@ function Decks() {
     <>
       <Switch>
         <Route path={`${path}`}>
-          <ViewDeck deck={deck} />
+          <ViewDeck deck={deck} deleteDeckHandler={deleteDeckHandler} />
         </Route>
         <Route></Route>
         <Route></Route>

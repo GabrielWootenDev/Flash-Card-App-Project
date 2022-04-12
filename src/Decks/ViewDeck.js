@@ -2,10 +2,10 @@ import React from "react";
 import { Link } from "react-router-dom";
 import CardList from "./CardList";
 
-function ViewDeck({ deck }) {
+function ViewDeck({ deck, deleteDeckHandler }) {
   const { cards } = deck;
-  console.log(cards);
-
+  
+//check on delete button routing after delete
   return (
     <>
       <nav aria-label="breadcrumb">
@@ -30,9 +30,13 @@ function ViewDeck({ deck }) {
         <Link to="" className="btn btn-primary">
           &#10133; Add Cards
         </Link>
-        <Link to="" className="btn btn-danger float-right">
+        <button
+          className="btn btn-danger float-right"
+          type="submit"
+          onClick={() => deleteDeckHandler(deck.id)}
+        >
           &#x1f5d1;
-        </Link>
+        </button>
       </div>
       <div>
         <h2>Cards</h2>

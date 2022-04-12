@@ -1,26 +1,26 @@
-import React, { useEffect, useState } from "react";
-import { Switch, Route } from "react-router-dom";
+import React  from "react";
+import { Switch, Route, useHistory } from "react-router-dom";
 import Header from "./Header";
 import NotFound from "./NotFound";
 import Home from "./Home";
 import CreateDeck from "../Decks/CreateDeck";
 import Decks from "./Decks";
-import { listDecks } from "../utils/api";
+import { deleteDeck } from "../utils/api";
 
+
+//to do study pages, card edit, deck edit, button functions
 function Layout() {
-  const [decks, setDecks] = useState([]);
+  const history = useHistory();
 
-  useEffect(() => {
-    async function loadDecks() {
-      try {
-        const response = await listDecks();
-        setDecks(response);
-      } catch (error) {
-        console.log("Load deck error:", error);
-      }
+
+  const deleteDeckHandler = (deckIdToDelete) => {
+    if (
+      window.confirm("Delete this deck? You will not be able to recover it.")
+    ) {
+      deleteDeck(deckIdToDelete);
+      history.go(0);
     }
-    loadDecks();
-  }, []);
+  };
 
   return (
     <>
@@ -28,13 +28,13 @@ function Layout() {
       <div className="container">
         <Switch>
           <Route exact path="/">
-            <Home decks={decks} />
+            <Home deleteDeckHandler={deleteDeckHandler} />
           </Route>
           <Route path="/decks/new">
-            <CreateDeck  />
+            <CreateDeck />
           </Route>
           <Route path="/decks/:deckId">
-            <Decks />
+            <Decks deleteDeckHandler={deleteDeckHandler} />
           </Route>
           <Route>
             <NotFound />

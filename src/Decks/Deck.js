@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 //todo: link buttons to appropriate functions and components.
-function Deck({ deck }) {
+function Deck({ deck, deleteDeckHandler }) {
 
   return (
     <div className="card">
@@ -22,9 +22,7 @@ function Deck({ deck }) {
         <Link to="" className="btn btn-primary">
           &#128218;Study
         </Link>
-        <Link to="" className="btn btn-danger float-right">
-          &#x1f5d1;
-        </Link>
+        <button className="btn btn-danger float-right" type="submit" onClick={() => deleteDeckHandler(deck.id)}>&#x1f5d1;</button>
       </div>
     </div>
   );
