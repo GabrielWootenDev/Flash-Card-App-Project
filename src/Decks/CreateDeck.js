@@ -39,7 +39,7 @@ function CreateDeck() {
         </ol>
       </nav>
       <div>
-        <h1>Create Deck</h1>
+        <h2>Create Deck</h2>
         <form onSubmit={handleSubmit}>
           <label htmlFor="name" className="form-label mt-2">
             Name
