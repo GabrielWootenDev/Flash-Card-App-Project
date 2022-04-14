@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import StudyCards from "../Cards/StudyCards";
 import NotEnoughCards from "../Cards/NotEnoughCards";

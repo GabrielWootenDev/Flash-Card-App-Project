@@ -1,7 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-function StudyCards({deck, cards, cardIndex, cardFront, flipButtonHandler}) {
+function StudyCards({
+  deck,
+  cards,
+  cardIndex,
+  cardFront,
+  flipButtonHandler,
+  nextButtonHandler,
+}) {
   return (
     <>
       <nav aria-label="breadcrumb">
@@ -26,17 +33,33 @@ function StudyCards({deck, cards, cardIndex, cardFront, flipButtonHandler}) {
             </h4>
             <div>
               {cardFront ? (
-                <p className="card-text">{cards[cardIndex].front}</p>
+                <>
+                  <p className="card-text m-2">{cards[cardIndex].front}</p>
+                  <button
+                    className="btn btn-secondary m-1"
+                    onClick={flipButtonHandler}
+                  >
+                    Flip
+                  </button>
+                </>
               ) : (
-                <p className="card-text">{cards[cardIndex].back}</p>
+                <>
+                  <p className="card-text m-2">{cards[cardIndex].back}</p>
+                  <button
+                    className="btn btn-secondary m-1"
+                    onClick={flipButtonHandler}
+                  >
+                    Flip
+                  </button>
+                  <button
+                    className="btn btn-primary m-1"
+                    onClick={nextButtonHandler}
+                  >
+                    Next
+                  </button>
+                </>
               )}
             </div>
-            <button
-              className="btn btn-secondary"
-              onClick={flipButtonHandler}
-            >
-              Flip
-            </button>
           </div>
         </div>
       </div>

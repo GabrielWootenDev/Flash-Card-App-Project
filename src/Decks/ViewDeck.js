@@ -1,5 +1,5 @@
-import React, {useState, useEffect} from "react";
-import { Link, useParams } from "react-router-dom";
+import React from "react";
+import { Link } from "react-router-dom";
 import CardList from "../Cards/CardList";
 
 //implement edit buttons here and on cards
@@ -28,7 +28,7 @@ function ViewDeck( { deck, cards, deleteDeckHandler }) {
         <Link to={`/decks/${deck.id}/study`} className="btn btn-primary mr-2">
           &#128218;Study
         </Link>
-        <Link to="" className="btn btn-primary">
+        <Link to={`/decks/${deck.id}/cards/new`} className="btn btn-primary">
           &#10133; Add Cards
         </Link>
         <button
