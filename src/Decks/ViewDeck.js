@@ -6,7 +6,6 @@ import CardList from "../Cards/CardList";
 
 function ViewDeck( { deck, cards, deleteDeckHandler }) {
 
-
   return (
     <>
       <nav aria-label="breadcrumb">
