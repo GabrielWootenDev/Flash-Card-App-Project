@@ -20,10 +20,11 @@ function CreateDeck() {
   }
 
   const handleSubmit = async (event) =>{
-    event.preventDefault()
+    event.preventDefault();
     const response = await createDeck(formData);
     await readDeck(response.id);
-    history.push(`/decks/${response.id}`)
+    history.go(0);
+    history.push(`/decks/${response.id}`);
 }
 
   return (

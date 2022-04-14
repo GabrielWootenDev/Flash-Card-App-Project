@@ -1,27 +1,10 @@
 import React, {useState, useEffect} from "react";
 import { Link, useParams } from "react-router-dom";
-import CardList from "./CardList";
-import { readDeck } from "../utils/api";
+import CardList from "../Cards/CardList";
 
 //implement edit buttons here and on cards
 
-function ViewDeck( { deleteDeckHandler }) {
-  const [deck, setDeck] = useState([]);
-
-  const { deckId } = useParams();
-
-  useEffect(() => {
-    async function loadDecks() {
-      try {
-        const response = await readDeck(deckId);
-        setDeck(response);
-      } catch (error) {
-        console.log("Load deck error: ", error);
-      }
-    }
-    loadDecks();
-  }, [deckId]);
-
+function ViewDeck( { deck, cards, deleteDeckHandler }) {
 
 
   return (
@@ -31,9 +14,9 @@ function ViewDeck( { deleteDeckHandler }) {
           <li className="breadcrumb-item">
             <Link to="/">Home</Link>
           </li>
-          <li className="breadcrumb-item active" aria-current="page">
+          <li className="breadcrumb-item active" aria-current="page"> 
             {deck.name}
-          </li>
+          </li> 
         </ol>
       </nav>
       <div className="mt-2 mb-3">
@@ -58,7 +41,7 @@ function ViewDeck( { deleteDeckHandler }) {
       </div>
       <div>
         <h2>Cards</h2>
-        <CardList cards={deck.cards} key={deck.id} />
+        <CardList cards={cards} key={deck.id} />
       </div>
     </>
   );
