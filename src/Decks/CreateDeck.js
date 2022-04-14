@@ -66,8 +66,8 @@ function CreateDeck() {
             placeholder="Brief description of the deck"
             className="form-control"
           />
-          <input className="btn btn-secondary mt-3 mr-1" type="reset" value="Cancel" onClick={() => history.push("/")}></input>
-          <input className="btn btn-primary mt-3 ml-1" type="submit" value="Submit"></input>
+          <button className="btn btn-secondary mt-3 mr-1" type="reset" value="Cancel" onClick={() => history.push("/")}></button>
+          <button className="btn btn-primary mt-3 ml-1" type="submit" value="Submit"></button>
         </form>
       </div>
     </>
