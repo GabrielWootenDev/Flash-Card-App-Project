@@ -2,9 +2,12 @@ import React from "react";
 import { Link, useHistory } from "react-router-dom";
 import { deleteCard } from "../utils/api";
 
+//CardList calls this component to create each card in its list.
+
 function Card({ card }) {
   const history = useHistory();
 
+  //our delete handler will open a window to confirm if we want to delete our card with a warning, if confirmed then deleteCard from the APi will remove the card based on its cardId and then the page will refresh.
   const deleteCardHandler = (cardIdToDelete) => {
     if (
       window.confirm("Delete this card? You will not be able to recover it.")

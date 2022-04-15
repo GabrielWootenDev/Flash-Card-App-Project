@@ -1,6 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
+//renders in a single cards information to be studied, using logic in the html to show only the front or backside depending on the value of "cardFront"
+
 function StudyCards({
   deck,
   cards,

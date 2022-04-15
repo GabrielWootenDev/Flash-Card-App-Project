@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 
 function Deck({ deck, deleteDeckHandler }) {
 
+  //display the information of a specific deck with our deleteDeckHandler attached to the delete button, used in decklists to create a list of decks for the homepage.
+
   return (
     <div className="card">
       <div className="card-body">

@@ -1,6 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
+//simple button that links to the path "/decks/new"
+
 function CreateDeckButton() {
   return (
     <div>

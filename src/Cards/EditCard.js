@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { Link, useHistory, useParams } from "react-router-dom";
 import { updateCard, readDeck, readCard } from "../utils/api";
 
+//renders a form to edit a card using the cardId params of the parent component.
+
 function EditCard({deck}) {
   const history = useHistory();
   const { deckId, cardId } = useParams();
@@ -16,6 +18,9 @@ function EditCard({deck}) {
 
     loadCard();
   }, [cardId]);
+
+  //initialFormState will fill in the values of our form to be the same as what they are on the existing card.
+  //there was an error in the api index.js so I added parseFloat in the deckId value to correct it.
 
   const initialFormState = {
     front: card.front,

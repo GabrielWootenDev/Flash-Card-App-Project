@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-
+//displays the page warning of a deck having less than 3 cards, only renders from StudyDeck
 function NotEnoughCards({deck}) {
     return (
       <div>

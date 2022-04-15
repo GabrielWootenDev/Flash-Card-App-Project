@@ -1,7 +1,7 @@
 import React from "react";
 import Deck from "./Deck";
 
-// todo: add props when appropriate additional functions for Deck are created.
+//maps out our Deck component to create a list of decks from our array of decks in our props.
 
 function DeckList({ decks, deleteDeckHandler }) {
   return (

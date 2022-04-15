@@ -20,7 +20,7 @@ function CreateCard({deck}) {
       [target.name]: value,
     });
   }
-
+ //submitting our form will use the creatCard API function to create a new card in our current deck from our formData
   const handleSubmit = async (event) =>{
     event.preventDefault();
     const response = await createCard(deckId, formData);

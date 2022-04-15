@@ -3,9 +3,8 @@ import { useHistory } from "react-router-dom";
 import StudyCards from "../Cards/StudyCards";
 import NotEnoughCards from "../Cards/NotEnoughCards";
 
-//add next button and card change handler
 
-function StudyDeck({ deck, cards, cardsLength }) {
+function StudyDeck({ deck, cards }) {
   const [cardIndex, setCardIndex] = useState(0);
   const [cardFront, setCardFront] = useState(true);
   const history = useHistory();
@@ -40,6 +39,8 @@ function StudyDeck({ deck, cards, cardsLength }) {
     }
   };
 
+  //renders either our StudyCards component or NotEnoughCards if we have les than 3 cards in a deck.
+  //StudyCards has many props from the StudyDeck component in order to keep our pages and nested components in better sync and solve a few performance issues.
   return (
     <>
       {deck && cards.length >= 3 ? (

@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import { createDeck, readDeck } from "../utils/api";
 
+//merged functionality into EditDeck component this file unused
+
 function CreateDeck() {
   const history = useHistory();
   const initialFormState = {
@@ -23,7 +25,6 @@ function CreateDeck() {
     event.preventDefault();
     const response = await createDeck(formData);
     await readDeck(response.id);
-    history.go(0);
     history.push(`/decks/${response.id}`);
 }
 
@@ -66,8 +67,8 @@ function CreateDeck() {
             placeholder="Brief description of the deck"
             className="form-control"
           />
-          <button className="btn btn-secondary mt-3 mr-1" type="reset" value="Cancel" onClick={() => history.push("/")}></button>
-          <button className="btn btn-primary mt-3 ml-1" type="submit" value="Submit"></button>
+          <button className="btn btn-secondary mt-3 mr-1" type="reset"  onClick={() => history.push("/")}>Cancel</button>
+          <button className="btn btn-primary mt-3 ml-1" type="submit" >Submit</button>
         </form>
       </div>
     </>

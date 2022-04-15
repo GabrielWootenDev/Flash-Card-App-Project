@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import CardList from "../Cards/CardList";
 
-//implement edit buttons here and on cards
+//renders a the information of a single deck, with multiple buttons attached to manipulate the data of the deck, or study the information contained. Renders our CardList component below to display the same information and similar buttons on the cards.
 
 function ViewDeck( { deck, cards, deleteDeckHandler }) {
 
@@ -21,7 +21,7 @@ function ViewDeck( { deck, cards, deleteDeckHandler }) {
       <div className="mt-2 mb-3">
         <h5 className="card-title">{deck.name}</h5>
         <p className="card-text">{deck.description}</p>
-        <Link to="" className="btn btn-secondary mr-2">
+        <Link to={`/decks/${deck.id}/edit`} className="btn btn-secondary mr-2">
           &#128393; Edit
         </Link>
         <Link to={`/decks/${deck.id}/study`} className="btn btn-primary mr-2">

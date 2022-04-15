@@ -6,12 +6,14 @@ import CreateDeckButton from "../Decks/CreateDeckButton";
 import DeckList from "../Decks/DeckList";
 import { deleteDeck, listDecks } from "../utils/api";
 import Decks from "./Decks";
-import CreateDeck from "../Decks/CreateDeck";
+import CreateEditDeck from "../Decks/Create-EditDeck";
 
-//to do study pages, card edit, deck edit, button functions
+
 function Layout() {
   const history = useHistory();
   const [decks, setDecks] = useState([]);
+
+  //our decks array is loaded in and set to state once on the homepage before passing down into our components for further filtering and mapping.
 
   useEffect(() => {
     async function loadDecks() {
@@ -25,6 +27,7 @@ function Layout() {
     loadDecks();
   }, []);
 
+  //when a delete deck button is pressed a confirmation window will appear and upon confirmation will remove the appropriate deckId from the API and return us to the home page, witha refresh to show the updated information.
   const deleteDeckHandler = (deckIdToDelete) => {
     if (
       window.confirm("Delete this deck? You will not be able to recover it.")
@@ -45,7 +48,7 @@ function Layout() {
             <DeckList decks={decks} deleteDeckHandler={deleteDeckHandler} />
           </Route>
           <Route path="/decks/new">
-            <CreateDeck />
+            <CreateEditDeck />
           </Route>
           <Route path="/decks/:deckId">
             <Decks decks={decks} deleteDeckHandler={deleteDeckHandler} />
