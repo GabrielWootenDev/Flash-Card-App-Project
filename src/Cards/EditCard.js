@@ -14,6 +14,7 @@ function EditCard({deck}) {
       const response = await readCard(cardId);
       const cardFromAPI = await response;
       setCard(cardFromAPI);
+      
     }
 
     loadCard();
@@ -22,16 +23,17 @@ function EditCard({deck}) {
   //initialFormState will fill in the values of our form to be the same as what they are on the existing card.
   //there was an error in the api index.js so I added parseFloat in the deckId value to correct it.
 
-  const initialFormState = {
-    front: card.front,
-    back: card.back,
-    deckId: parseFloat(deckId),
-    id: cardId,
-  };
+
 
   useEffect(() => {
-      setFormData({...initialFormState})
-  }, [card]);
+    const initialFormState = {
+      front: card.front,
+      back: card.back,
+      deckId: parseFloat(deckId),
+      id: cardId,
+    };
+      setFormData(initialFormState)
+  }, [card, cardId, deckId]);
 
   const [formData, setFormData] = useState({});
 

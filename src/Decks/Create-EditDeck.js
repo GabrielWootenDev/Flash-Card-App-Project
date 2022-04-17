@@ -23,9 +23,7 @@ function CreateEditDeck({ deck }) {
         id: deck.id,
       }));
     }
-    console.log(formData);
   }, [deck]);
-
   //when anything is input into either field the value is stored in formData state and that input value changes to the same as the form with the based on the target key.
   const handleChange = (event) => {
     const value = event.target.value;
