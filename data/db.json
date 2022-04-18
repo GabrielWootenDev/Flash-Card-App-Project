@@ -13,7 +13,7 @@
   ],
   "cards": [
     {
-      "front": "Differentiate between Real DOM and Virtual DOM. ",
+      "front": "Differentiate between Real DOM and Virtual DOM.  ",
       "back": "Virtual DOM updates are faster but do not directly update the HTML",
       "deckId": 1,
       "id": 1

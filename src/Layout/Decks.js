@@ -4,8 +4,7 @@ import { readDeck } from "../utils/api";
 import ViewDeck from "../Decks/ViewDeck";
 import StudyDeck from "../Decks/StudyDeck";
 import CreateEditDeck from "../Decks/Create-EditDeck";
-import CreateCard from "../Cards/CreateCard";
-import EditCard from "../Cards/EditCard";
+import CreateEditCard from "../Cards/Create-EditCard";
 
 //Decks hold the routing for all components with :deckId paths.
 
@@ -39,10 +38,10 @@ function Decks({ deleteDeckHandler }) {
     <>
       <Switch>
         <Route path="/decks/:deckId/cards/new">
-          <CreateCard deck={deck} />
+          <CreateEditCard deck={deck} />
         </Route>
         <Route path="/decks/:deckId/cards/:cardId/edit">
-          <EditCard deck={deck} />
+          <CreateEditCard deck={deck} />
         </Route>
         <Route path="/decks/:deckId/edit">
           <CreateEditDeck deck={deck} />
